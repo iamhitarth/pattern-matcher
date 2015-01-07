@@ -28,7 +28,14 @@ describe("Pattern Matcher", function(){
       expect(result).to.equal(expected);
     });
 
+    it("should say . matches a", function(){
+      var pattern = ".";
+      var sample = "a";
+      var expected = true;
+      var result = pm.is_match(pattern, sample);
 
+      expect(result).to.equal(expected);
+    });
     it("should say ab. matches abc", function(){
       var pattern = "ab.";
       var sample = "abc";
@@ -105,14 +112,58 @@ describe("Pattern Matcher", function(){
 
       expect(result).to.equal(expected);
     });
-    it("should say dabc*d matches abcefghijd", function(){
-      var pattern = "dabc*d";
-      var sample = "dabcefghijd";
+
+    //This test proves that * can be matched with nothing as well
+    it("should say abc*d matches abcd", function(){
+      var pattern = "abc*d";
+      var sample = "abcd";
       var expected = true;
       var result = pm.is_match(pattern, sample);
 
       expect(result).to.equal(expected);
     });
+
+    it("should say '' matches ''", function(){
+      var pattern = '';
+      var sample = '';
+      var expected = true;
+      var result = pm.is_match(pattern, sample);
+
+      expect(result).to.equal(expected);
+    });
+
+    //This one checks to see if algorithm caters for multiple stars in a row
+    //Not sure if this would be a "legal" scenario
+    it("should say ab**d matches abcefghijd", function(){
+      var pattern = "ab**d";
+      var sample = "abcefghijd";
+      var expected = true;
+      var result = pm.is_match(pattern, sample);
+
+      expect(result).to.equal(expected);
+    });
+
+    it("should say ab.* matches abcefghijd", function(){
+      var pattern = "ab.*";
+      var sample = "abcefghijd";
+      var expected = true;
+      var result = pm.is_match(pattern, sample);
+
+      expect(result).to.equal(expected);
+    });
+
+    it("should say ab...*d matches abcefghijd", function(){
+      var pattern = "ab...*d";
+      var sample = "abcefghijd";
+      var expected = true;
+      var result = pm.is_match(pattern, sample);
+
+      expect(result).to.equal(expected);
+    });
+
+    //Tests that can't pass right now
+    //ab*. matches abcd
+    //ab.*.*d matches abcefghijd
 
   });
 });
