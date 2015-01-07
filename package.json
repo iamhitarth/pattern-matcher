@@ -1,0 +1,25 @@
+{
+  "name": "pattern-matcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamhitarth/pattern-matcher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamhitarth/pattern-matcher/issues"
+  },
+  "homepage": "https://github.com/iamhitarth/pattern-matcher",
+  "dependencies": {
+    "chai": "^1.10.0"
+  }
+}
